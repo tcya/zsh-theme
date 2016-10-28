@@ -4,7 +4,7 @@
 local my_gray=$FG[237]
 local my_orange=$FG[214]
 
-# Faces "%" is needed to escape ")"
+# "%" is needed to escape ")" in faces
 local -a happy_faces
 happy_faces=('⎝(◕u◕%)⎠' '⎝( OωO%)⎠' '(^u^%)' 'ヽ(●´∀`●%)ﾉ' '(ﾉ>ω<%)ﾉ' '(｡◕∀◕｡%)' 'ヽ(✿ﾟ▽ﾟ%)ノ' '(ﾉ◕ヮ◕%)ﾉ*:･ﾟ✧' '٩(๑•̀ω•́๑%)۶' '(๑ ^ ₃•๑%)' '(｡◕∀◕｡%)' '(๑•̀ㅂ•́%)و✧' '٩(๑•̀ω•́๑%)۶' '(▰˘◡˘▰%)' 'ヽ(●´ε｀●%)ノ' '(ゝ∀･%)⌒☆' '(◍•ᴗ•◍%)ゝ' '✧*｡٩(ˊᗜˋ*%)و✧*｡' '(⁎⁍̴̛ᴗ⁍̴̛⁎%)‼' '< (￣︶￣%)>' '(๑ ^ ₃•๑%)' '(๑╹◡╹๑%)')
 local -a sad_faces
@@ -14,6 +14,8 @@ local face_color="%(?:%{$fg[magenta]%}:%{$fg[cyan]%})"
 
 # primary prompt
 PROMPT='$(git_prompt_info)${face_color}%(?:$happy_faces[$((RANDOM % $#happy_faces+1))]:$sad_faces[$((RANDOM %$#sad_faces+1))])$my_orange» %{$reset_color%}'
+
+RPROMPT='$FG[032]%~%{$reset_color%}'
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$FG[032]%}git:(%{$FG[105]%}"
